@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mitch 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* Envelope Intro */
+.envelope-container{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+
+.envelope{
+  width:260px;
+  height:180px;
+  background:#fff;
+  border-radius:12px;
+  cursor:pointer;
+  animation:float 2s infinite ease-in-out;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.envelope span{
+  color:#ff4d6d;
+  font-weight:600;
+}
+
+@keyframes float{
+  50%{transform:translateY(-10px)}
+}
+
+/* Main Card */
+.card{
+  display:none;
+  max-width:540px;
+  margin:20px auto;
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(12px);
+  border-radius:22px;
+  padding:22px 18px 30px;
+  text-align:center;
+  animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(.9)}
+  to{opacity:1;transform:scale(1)}
+}
+
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:2.6em;
+}
+
+.music-btn{
+  background:#fff;
+  border:none;
+  border-radius:20px;
+  padding:8px 16px;
+  margin-bottom:15px;
+  font-size:.85em;
+  cursor:pointer;
+  color:#ff4d6d;
+}
+
+.poem{
+  font-size:1em;
+  line-height:1.7;
+  margin:15px 0 25px;
+  white-space:pre-line;
+}
+
+/* Swipe Slider */
+.slider{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.slider img{
+  min-width:80%;
+  height:200px;
+  object-fit:cover;
+  border-radius:16px;
+  scroll-snap-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.3);
+  cursor:pointer;
+}
+
+/* Fullscreen viewer */
+.viewer{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:50;
+}
+
+.viewer img{
+  max-width:95%;
+  max-height:90%;
+  border-radius:16px;
+}
+
+.msg-box{
+  background:rgba(0,0,0,.15);
+  border-radius:16px;
+  padding:15px;
+  font-size:.95em;
+  line-height:1.6;
+}
+
+footer{
+  margin-top:18px;
+  font-size:.8em;
+  opacity:.8;
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  color:rgba(255,255,255,.85);
+  animation:floatUp linear forwards;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1}
+  to{transform:translateY(-110vh);opacity:0}
+}
+
+/* Fireworks */
+.firework{
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+  to{transform:translate(var(--x),var(--y));opacity:0}
+}
+
+@media(max-width:480px){
+  h1{font-size:2.2em;}
+  .slider img{height:170px;}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/02/23/audio_9f52f5d90c.mp3" type="audio/mpeg">
+</audio>
+
+<div class="envelope-container" id="intro">
+  <div class="envelope" onclick="openLetter()">
+    <span>💌 Tap to Open</span>
+  </div>
+</div>
+
+<div class="card" id="main">
+
+  <h1>For Mitch 💖</h1>
+
+  <button class="music-btn" onclick="toggleMusic()">🎵 Play / Pause Music</button>
+
+  <div class="poem">
+Mitch, my sister, strong and true,  
+So much of who I am is because of you.  
+Through every storm, through every fight,  
+You stood beside me, my guiding light.  
+
+When I was weak, you gave me strength,  
+When I was lost, you walked the length.  
+Of every road I feared to tread,  
+With hopeful words and faith instead.  
+
+Your heart is gentle, fierce, and kind,  
+A rarer soul I’ll never find.  
+Through all the pain, you still remain,  
+Resilient, loving, rising again.  
+
+Thank you for being my constant friend,  
+My safe beginning, my steady end.  
+Forever grateful, forever proud —  
+To call you my sister, strong and loud.
+  </div>
+
+  <div class="slider">
+    <img src="images/photo1.jpg" onclick="openViewer(this.src)">
+    <img src="images/photo2.jpg" onclick="openViewer(this.src)">
+    <img src="images/photo3.jpg" onclick="openViewer(this.src)">
+    <img src="images/photo4.jpg" onclick="openViewer(this.src)">
+  </div>
+
+  <div class="msg-box">
+    To my amazing sister Mitch 💖<br><br>
+    I just want you to know how deeply loved and appreciated you are.
+    You are such a blessing in my life, and I’m endlessly grateful for your strength,
+    kindness, and the beautiful heart you carry.
+    <br><br>
+    Thank you for always being there for me — for your support, your patience,
+    your encouragement, and your constant love.
+    You have lifted me in my lowest moments and celebrated me in my highest,
+    and I will always cherish that.
+    <br><br>
+    I’m proud of the woman you are and the resilience you show every day.
+    May life always meet you with the same kindness and warmth you give to others.
+    <br><br>
+    With all my love and gratitude,<br>
+    — Rodgers 💕
+  </div>
+
+  <footer>Made with ❤️</footer>
+</div>
+
+<div class="viewer" id="viewer" onclick="closeViewer()">
+  <img id="viewerImg">
+</div>
+
+<script>
+function openLetter(){
+  document.getElementById("intro").style.display="none";
+  document.getElementById("main").style.display="block";
+  document.getElementById("bgMusic").play();
+  fireworks();
+}
+
+function toggleMusic(){
+  const m=document.getElementById("bgMusic");
+  m.paused?m.play():m.pause();
+}
+
+function fireworks(){
+  for(let i=0;i<80;i++){
+    const f=document.createElement("div");
+    f.className="firework";
+    f.style.left="50vw";
+    f.style.top="50vh";
+    f.style.setProperty('--x',(Math.random()*600-300)+'px');
+    f.style.setProperty('--y',(Math.random()*600-300)+'px');
+    f.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1000);
+  }
+}
+
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(Math.random()*18+10)+"px";
+  h.style.animationDuration=(3+Math.random()*4)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+
+setInterval(createHeart,400);
+
+function openViewer(src){
+  document.getElementById("viewer").style.display="flex";
+  document.getElementById("viewerImg").src=src;
+}
+
+function closeViewer(){
+  document.getElementById("viewer").style.display="none";
+}
+</script>
+
+</body>
+</html>
